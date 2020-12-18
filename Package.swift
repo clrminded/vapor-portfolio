@@ -15,7 +15,8 @@ let package = Package(
         .target(
             name: "App",
             dependencies: [
-                .product(name: "Vapor", package: "vapor")
+                .product(name: "Vapor", package: "vapor"),
+                .product(name:"Leaf", package: "leaf")
             ],
             swiftSettings: [
                 // Enable better optimizations when building in Release configuration. Despite the use of

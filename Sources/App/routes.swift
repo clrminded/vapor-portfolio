@@ -1,13 +1,25 @@
 import Vapor
 
-func routes(_ app: Application) throws {
-    app.get { req in
-        return req.view.render("index", ["title": "Hello Vapor!"])
-    }app.get { req in
-        return "It works!"
-    }
 
-    app.get("hello") { req -> String in
-        return "Hello, world!"
+
+func routes(_ app: Application) throws {
+    app.get { req -> EventLoopFuture<View> in
+
+        struct WelcomeContext: Encodable {
+            var title:String
+            var name:String
+            var job:String
+        }
+
+        return req.view.render("index", WelcomeContext(title:"Vapor", name: "Chris", job:"Programmer"))
+    }
+    
+    app.get("hello") { req -> EventLoopFuture<View> in
+
+        struct HelloContext: Encodable {
+            var title:String
+            var name:String
+        }
+        return req.view.render("hello", HelloContext(title:"Vapor", name: "Julianna"))
     }
 }
