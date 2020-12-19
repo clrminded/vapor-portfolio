@@ -4,10 +4,72 @@
   <meta charset="utf-8">
 
   <title>#(title)</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
-
 <body>
-  <h1>Hello, my name is #(name)</h1>
-  <h3>I am a #(job)</h3>
+
+  <!--<h1>Hello, my name is #(name)</h1>
+  <h3>I am a #(job)</h3> -->
+  <nav id="navbar">
+    <ul>
+      <a class="nav-link" href="#welcome-section">
+        <li>About</li>
+      </a>
+      <a class="nav-link" href="#projects">
+        <li>Work</li>
+      </a>
+      <a class="nav-link" href="#footer">
+        <li>Contact</li>
+      </a>
+    </ul>
+  </nav>
+
+  <div id="welcome-section">
+    <h1>[CLR]Minded</h1>
+    <h1>My name is #(name)</h1>
+    <h3>I am a <strong>#(job)</strong>, <u>linux enthusist</u>, <em>PC Master Race</em></h3>
+  </div>
+
+  <!-- start of main -->
+
+  <main id="projects">
+
+    <div class="container">
+      <div class="grid-row">
+        <div class="grid-item">
+          <header class="project-tile">Tribute Page</header>
+          <a href="https://codepen.io/clrmindedprogrammer/pen/LYVBzmy" target="_blank"><img src="Project1.png" alt="tribute"></a>
+        </div>
+        <div class="grid-item">
+          <header class="project-tile">Survey Project</header>
+          <a href="https://codepen.io/clrmindedprogrammer/pen/rNVrQgJ" target="_blank"><img src="Project2.png" alt="survey project"></a>
+        </div>
+        <div class="grid-item">
+          <header class="project-tile">Technical Documentation</header>
+          <a href="https://codepen.io/clrmindedprogrammer/pen/xxGaVwx" target="_blank"><img src="Project3.png" alt="technical-doc"></a>
+        </div>
+      </div>
+      <div class="container">
+        <div class="grid-row">
+          <div class="grid-item">
+
+          </div>
+          <div class="grid-item">
+
+          </div>
+          <div class="grid-item">
+
+          </div>
+        </div>
+        <a id="profile-link" href="https://www.github.com/clrminded" target="_blank">Show All</a>
+
+  </main>
+  <!-- end of main -->
+
+  <!-- start of footer -->
+  <footer id="footer">
+    Copyright CLRminded Programmer
+  </footer>
+  <!-- end of footer -->
 </body>
 </html>
