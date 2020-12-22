@@ -90,6 +90,25 @@ func routes(_ app: Application) throws {
         }.all()
     }
     
+    // Get First
+    app.get("api", "acronyms", "first") {
+      req -> EventLoopFuture<Acronym> in
+      // 2
+      Acronym.query(on: req.db)
+        .first()
+        .unwrap(or: Abort(.notFound))
+    }
+    
+    // sorting
+    app.get("api", "acronyms", "sorted") {
+      req -> EventLoopFuture<[Acronym]> in
+      // 2
+      Acronym.query(on: req.db)
+        .sort(\.$short, .ascending)
+        .all()
+        
+    }
+    
 
 }
 
