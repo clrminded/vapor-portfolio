@@ -22,7 +22,5 @@ init() {}
 } }
 
 extension Acronym: Content {
-    "short": "OMG",
-    "long": "Oh My God"
 }
 
