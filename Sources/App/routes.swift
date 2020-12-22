@@ -11,12 +11,28 @@ func routes(_ app: Application) throws {
                                 "job":"Programmer"])
     }
     
-    app.get("hello") { req -> EventLoopFuture<View> in
+    app.get("hello", ":name") { req -> String in
 
-        struct HelloContext: Encodable {
-            var title:String
-            var name:String
+        guard let name = req.parameters.get("name") else {
+            throw Abort(.internalServerError)
         }
-        return req.view.render("hello", HelloContext(title:"Vapor", name: "Julianna"))
+        return "Hello, \(name)!"
     }
+    
+    app.post("hello") { req -> String in
+        let data = try req.content.decode(InfoData.self)
+        return "Hello \(data.name)!"
+    }
+    
+    app.post("api", "acronyms") { req -> EventLoopFuture<Acronym> in
+      let acronym = try req.content.decode(Acronym.self)
+
+      return acronym.save(on: req.db).map {
+        acronym
+      }
+    }
+}
+
+struct InfoData:Content {
+    let name: String
 }
