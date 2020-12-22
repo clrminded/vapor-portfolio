@@ -12,14 +12,15 @@ final class Acronym: Model {
   var short: String
   @Field(key: "long")
   var long: String
-// 5
-init() {}
-// 6
+  // 5
+  init() {}
+  // 6
   init(id: UUID? = nil, short: String, long: String) {
     self.id = id
     self.short = short
     self.long = long
-} }
+  }
+}
 
 extension Acronym: Content {
 }

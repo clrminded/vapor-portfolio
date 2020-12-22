@@ -5,12 +5,9 @@ struct CreateAcronym: Migration {
   func prepare(on database: Database) -> EventLoopFuture<Void> {
     // 3
     database.schema("acronyms")
-      // 4
-.id()
-// 5
+      .id()
       .field("short", .string, .required)
       .field("long", .string, .required)
-      // 6
       .create()
 }
 // 7

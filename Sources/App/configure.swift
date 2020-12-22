@@ -8,7 +8,14 @@ import FluentPostgresDriver
 // configures your application
 public func configure(_ app: Application) throws {
     
-    app.databases.use(.postgres(hostname: "localhost", username: "chris", password: "chrisliuda", database: "portfoliodb"), as: .psql)
+    app.databases.use(.postgres(hostname: Environment.get("DATABASE_HOST")
+                                    ?? "localhost",
+                                username: Environment.get("DATABASE_USERNAME")
+                                    ?? "chris",
+                                password: Environment.get("DATABASE_PASSWORD")
+                                    ?? "chrisliuda",
+                                database: Environment.get("DATABASE_NAME")
+                                    ?? "portfoliodb"), as: .psql)
 
     app.migrations.add(CreateAcronym())
     app.logger.logLevel = .debug
